@@ -22,8 +22,6 @@ services:
       - /dev/net/tun
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-    # Disabled by Anish for testing
-    #network_mode: host
 ```
 
 ## Source
