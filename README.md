@@ -16,7 +16,7 @@ Sample `Compose` config file:
 version: "3"
 services:
   app:
-    image: trydock/dkr-firefox:v0.0.3
+    image: trydock/dkr-firefox:v0.0.5
     environment:
       - DISPLAY=${DISPLAY}
     shm_size: '256mb'
@@ -31,3 +31,7 @@ services:
 ## Source
 
 based on : https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+
+### Additional References:
+
+ - https://gursimarsm.medium.com/run-gui-applications-in-a-docker-container-ca625bad4638
