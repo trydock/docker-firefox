@@ -1,6 +1,10 @@
-# docker-firefox
+# Mozilla Firefox
 
-Firefox Browser
+This is a container image for Firefox Browser.
+
+We push this image to : `https://hub.docker.com/r/trydock/dkr-firefox`
+
+You can find all tags : `https://hub.docker.com/r/trydock/dkr-firefox/tags`
 
 ## Sample Compose file.
 
