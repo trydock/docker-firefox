@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout 
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Set output
         id: vars
@@ -34,7 +34,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: build
-        run: docker build . --file Containerfile --tag ${{ secrets.DOCKER_ORG }}/dkr-firefox:${{ steps.vars.outputs.tag }} --tag ${{ secrets.DOCKER_USERNAME }}/dkr-firefox:latest
+        run: docker build . --file Containerfile --tag ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.tag }} --tag ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 
-      - name: push
-        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/dkr-firefox
+      - name: push tag with version
+        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.tag }}
+        
+      - name: push tag latest
+        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:latest
