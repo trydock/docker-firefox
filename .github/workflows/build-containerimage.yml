@@ -37,7 +37,7 @@ jobs:
         run: docker build . --file Containerfile --tag ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.tag }} --tag ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
 
       - name: push tag with version
-        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:${{ steps.vars.outputs.tag }}
+        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}
         
       - name: push tag latest
-        run: docker image push --all-tags ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:latest
+        run: docker image push ${{ secrets.DOCKER_ORG }}/${{ secrets.DOCKER_REPO }}:latest
